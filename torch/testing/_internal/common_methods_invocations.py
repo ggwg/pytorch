@@ -14173,6 +14173,8 @@ op_db: List[OpInfo] = [
            supports_fwgrad_bwgrad=True,
            sample_inputs_func=sample_inputs_msort,
            skips=(
+               DecorateInfo(pytest.mark.serial, 'TestGradients', 'test_fn_fwgrad_bwgrad', dtypes=[torch.float64],
+                            device_type='cuda'),
            )),
     OpInfo('movedim',
            aliases=('moveaxis',),
